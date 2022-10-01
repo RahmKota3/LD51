@@ -75,6 +75,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Slash
       objectReference: {fileID: 0}
+    - target: {fileID: 5866561415143653958, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+      propertyPath: m_text
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8165786868584675723, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Sprite
       value: 

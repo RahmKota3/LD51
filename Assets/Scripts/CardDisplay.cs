@@ -25,7 +25,7 @@ public class CardDisplay : MonoBehaviour
         }
 
         NameBox.text = cardData.Name;
-        DescriptionBox.text = cardData.Description;
+        DescriptionBox.text = string.Format(cardData.Description, cardData.EffectStrength);
         EffectStrengthTextBox.text = cardData.EffectStrength.ToString();
         CardIcon.sprite = cardData.CardIcon;
         EffectIcon.sprite = cardData.EffectIcon;
