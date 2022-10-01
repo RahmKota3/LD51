@@ -9,4 +9,5 @@ public class Card : ScriptableObject
 	public Sprite CardIcon;
 	public Sprite EffectIcon;
 	public int EffectStrength = 0;
+	public Color CardColor = Color.white;
 }

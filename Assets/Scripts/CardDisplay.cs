@@ -15,9 +15,7 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] SpriteRenderer cardIcon;
     [SerializeField] SpriteRenderer effectIcon;
     [SerializeField] SpriteRenderer background;
-    [SerializeField] SpriteRenderer descBackground;
     [SerializeField] SpriteRenderer quickInfoBackground;
-    [SerializeField] SpriteRenderer frame;
 
     [ContextMenu("Populate card")]
     public void DisplayCard()
@@ -33,6 +31,8 @@ public class CardDisplay : MonoBehaviour
         effectStrengthTextBox.text = cardData.EffectStrength.ToString();
         cardIcon.sprite = cardData.CardIcon;
         effectIcon.sprite = cardData.EffectIcon;
+
+        UpdateSpriteColor();
     }
 
     public void ChangeSortingLayer(CardSortingLayer layer)
@@ -43,8 +43,12 @@ public class CardDisplay : MonoBehaviour
         cardIcon.sortingLayerName = layer.ToString();
         effectIcon.sortingLayerName = layer.ToString();
         background.sortingLayerName = layer.ToString();
-        descBackground.sortingLayerName = layer.ToString();
         quickInfoBackground.sortingLayerName = layer.ToString();
-        frame.sortingLayerName = layer.ToString();
+    }
+
+    void UpdateSpriteColor()
+    {
+        background.color = cardData.CardColor;
+        quickInfoBackground.color = cardData.CardColor;
     }
 }

@@ -12,19 +12,30 @@ public class CardsManager : MonoBehaviour
 
 	float offsetBetweenCards;
 	GameObject spawnedCard;
-	bool isFirstShuffle;
+	bool isFirstShuffle = true;
+	float firstCardPosition;
 
 	[SerializeField] StartingCardData startingCardData;
 
 	List<int> drawableCardsInOrder = new List<int>();
-	List<int> cardsInHand = new List<int>();
+	List<GameObject> cardsInHand = new List<GameObject>();
 	List<int> discardPile = new List<int>();
+	int numOfCardsInHand { get { return cardsInHand.Count; } }
 
 	Dictionary<int, GameObject> cardDictionary = new Dictionary<int, GameObject>();
+	Dictionary<GameObject, int> cardIDsDictionary = new Dictionary<GameObject, int>();
 
-	public void PlayCard()
+	// TODO: Remove card from draw pile when drawn.
+	// TODO: Shuffle when there are no more cards in the draw pile.
+	// TODO: Add card to discard pile when played.
+	// TODO: Display the amount of cards left in the draw and discard pile.
+
+	public void PlayCard(GameObject cardPlayed)
     {
-
+		cardsInHand.Remove(cardPlayed);
+		discardPile.Add(cardIDsDictionary[cardPlayed]);
+		SimplePool.Despawn(cardPlayed);
+		PositionCardsInHand();
 		EventsManager.Instance.OnCardPlayed?.Invoke();
     }
 
@@ -32,23 +43,24 @@ public class CardsManager : MonoBehaviour
     {
 		Debug.Log("Drawing a new hand");
 
-		offsetBetweenCards = distanceBetweenCards;
-		float firstCardPosition = -Mathf.Floor((float)numOfCards / 2) * distanceBetweenCards;
-		if (numOfCards % 2 == 0)
-			firstCardPosition += (distanceBetweenCards / 2);
-
         for (int i = 0; i < numOfCards; i++)
         {
-			SpawnCard(GetCardFromId(drawableCardsInOrder[i]), firstCardPosition, i);
+			SpawnCard(GetCardFromId(drawableCardsInOrder[i]));
+			spawnedCard.GetComponent<CardDisplay>().ChangeSortingLayer((CardSortingLayer)i);
+			cardsInHand.Add(spawnedCard);
+
 			EventsManager.Instance.OnCardDrawn?.Invoke();
         }
+
+		PositionCardsInHand();
     }
 
 	public void ShuffleDiscardPile()
     {
 		int rand;
+		int numOfCards = discardPile.Count;
 
-        for (int i = 0; i < discardPile.Count; i++)
+        for (int i = 0; i < numOfCards; i++)
         {
 			rand = Random.Range(0, discardPile.Count);
 			drawableCardsInOrder.Add(discardPile[rand]);
@@ -58,14 +70,27 @@ public class CardsManager : MonoBehaviour
 		if (isFirstShuffle)
 			EventsManager.Instance.OnFirstShuffle?.Invoke();
 		EventsManager.Instance.OnCardsShuffled?.Invoke();
+
+		isFirstShuffle = false;
     }
 
-	void SpawnCard(GameObject cardPrefab, float firstCardPosition, int spawnedCardCount)
+	void PositionCardsInHand()
     {
-		spawnedCard = SimplePool.Spawn(cardPrefab, transform.position, Quaternion.identity);
+		offsetBetweenCards = distanceBetweenCards;
+		float firstCardPosition = -Mathf.Floor((float)numOfCardsInHand / 2) * distanceBetweenCards;
+		if (numOfCardsInHand % 2 == 0)
+			firstCardPosition += (distanceBetweenCards / 2);
+
+        for (int i = 0; i < numOfCardsInHand; i++)
+        {
+			cardsInHand[i].transform.localPosition = new Vector3(firstCardPosition + (i * offsetBetweenCards), 0);
+		}
+	}
+
+	void SpawnCard(GameObject cardToSpawn)
+    {
+		spawnedCard = SimplePool.Spawn(cardToSpawn, transform.position, Quaternion.identity);
 		spawnedCard.transform.parent = handCardsParent;
-		spawnedCard.transform.localPosition = new Vector3(firstCardPosition + (spawnedCardCount * offsetBetweenCards), 0);
-		spawnedCard.GetComponent<CardDisplay>().ChangeSortingLayer((CardSortingLayer)spawnedCardCount);
 	}
 
 	void AddStartingCards()
@@ -81,6 +106,7 @@ public class CardsManager : MonoBehaviour
         foreach (IntToGameObjectDictionary cardIds in CardsList)
         {
 			cardDictionary[cardIds.ID] = cardIds.Object;
+			cardIDsDictionary[cardIds.Object] = cardIds.ID;
         }
     }
 
@@ -100,6 +126,6 @@ public class CardsManager : MonoBehaviour
     private void Start()
 	{
 		ShuffleDiscardPile();
-		DrawHand(5);
+		DrawHand(6);
     }
 }
