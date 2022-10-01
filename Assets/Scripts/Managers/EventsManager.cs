@@ -5,15 +5,23 @@ public class EventsManager : MonoBehaviour
 {
 	public static EventsManager Instance;
 
-	public Action OnBeforeSceneLoad;
+    #region LevelManager
+    public Action OnBeforeSceneLoad;
 	public Action OnAfterSceneLoad;
+    #endregion
 
-	public Action OnCardDrawn;
+    #region CardActions
+    public Action OnCardDrawn;
 	public Action OnCardPlayed;
 	public Action OnCardsShuffled;
 	public Action OnFirstShuffle;
+	#endregion
 
-	void Awake()
+	#region Input
+    public Action DEBUG_OnDrawCardsButtonPressed;
+	#endregion
+
+    void Awake()
 	{
 		Instance = this;
 	}

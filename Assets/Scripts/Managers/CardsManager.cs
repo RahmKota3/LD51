@@ -24,32 +24,45 @@ public class CardsManager : MonoBehaviour
 	int numOfCardsInHand { get { return cardsInHand.Count; } }
 	public int NumOfCardsInDiscardPile { get { return discardPile.Count; } }
 	public int NumOfCardsInDrawPile { get { return drawableCardsInOrder.Count; } }
+	public int FullHandCardCount{ get { return (int)playerStatsController.GetAttributeValue(AttributeType.MaxCardsInHand); } }
 
 	Dictionary<int, GameObject> cardDictionary = new Dictionary<int, GameObject>();
 	Dictionary<GameObject, int> cardIDsDictionary = new Dictionary<GameObject, int>();
 
+	StatsController playerStatsController;
+
 	// TODO: Shuffle when there are no more cards in the draw pile.
-	// TODO: Add card to discard pile when played.
 
 	public void PlayCard(GameObject cardPlayed)
     {
 		cardsInHand.Remove(cardPlayed);
-		discardPile.Add(cardIDsDictionary[cardPlayed]);
+		discardPile.Add(cardPlayed.GetComponent<CardDisplay>().cardData.ID);
 		SimplePool.Despawn(cardPlayed);
 		PositionCardsInHand();
 		EventsManager.Instance.OnCardPlayed?.Invoke();
+
+		if (numOfCardsInHand == 0)
+		{
+			ShuffleDiscardPile();
+			DrawCards(FullHandCardCount);
+		}
     }
 
-	public void DrawHand(int numOfCards)
+	public void DrawCards(int numOfCards)
     {
-		Debug.Log("Drawing a new hand");
+		CardDisplay cd;
 
         for (int i = 0; i < numOfCards; i++)
         {
 			SpawnCard(GetCardFromId(drawableCardsInOrder[0]));
-			spawnedCard.GetComponent<CardDisplay>().ChangeSortingLayer((CardSortingLayer)i);
+			cd = spawnedCard.GetComponent<CardDisplay>();
+			cd.ChangeSortingLayer((CardSortingLayer)i);
+			cd.cardData.ID = drawableCardsInOrder[0];
 			cardsInHand.Add(spawnedCard);
 			drawableCardsInOrder.RemoveAt(0);
+
+			if (NumOfCardsInDrawPile == 0)
+				ShuffleDiscardPile();
 
 			EventsManager.Instance.OnCardDrawn?.Invoke();
         }
@@ -139,6 +152,11 @@ public class CardsManager : MonoBehaviour
     {
 		return cardDictionary[ID];
     }
+
+	void DEBUG_DrawHand()
+    {
+		DrawCards(FullHandCardCount);
+	}
 	
 	void Awake()
 	{
@@ -150,7 +168,10 @@ public class CardsManager : MonoBehaviour
 
     private void Start()
 	{
+		playerStatsController = ReferenceManager.Instance.PlayerStatsController;
 		ShuffleDiscardPile();
-		DrawHand(6);
+		DrawCards(FullHandCardCount);
+
+		EventsManager.Instance.DEBUG_OnDrawCardsButtonPressed += DEBUG_DrawHand;
     }
 }

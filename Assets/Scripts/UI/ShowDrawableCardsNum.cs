@@ -13,5 +13,13 @@ public class ShowDrawableCardsNum : UpdateableTextBase
     {
         EventsManager.Instance.OnCardDrawn += UpdateCardsNumber;
         EventsManager.Instance.OnCardsShuffled += UpdateCardsNumber;
+
+        UpdateCardsNumber();
+    }
+
+    private void OnDestroy()
+    {
+        EventsManager.Instance.OnCardDrawn -= UpdateCardsNumber;
+        EventsManager.Instance.OnCardsShuffled -= UpdateCardsNumber;
     }
 }

@@ -6,7 +6,7 @@ using TMPro;
 public class CardDisplay : MonoBehaviour
 {
     [Header("Card")]
-    [SerializeField] Card cardData;
+    public Card cardData;
 
     [Header("Display elements")]
     [SerializeField] TextMeshPro nameBox;

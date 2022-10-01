@@ -10,6 +10,8 @@ public class ReferenceManager : MonoBehaviour
 
 	public Camera CurrentCamera;
 
+	public StatsController PlayerStatsController;
+
 	void OnSceneLoaded()
     {
 		FindACamera();

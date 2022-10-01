@@ -10,4 +10,6 @@ public class Card : ScriptableObject
 	public Sprite EffectIcon;
 	public int EffectStrength = 0;
 	public Color CardColor = Color.white;
+
+	[HideInInspector] public int ID = -1;
 }

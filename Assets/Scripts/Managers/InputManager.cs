@@ -6,12 +6,11 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
 
-    public System.Action OnExampleButtonPressed;
-
     void CheckForInput()
     {
-        if (Input.GetButtonDown("Fire1"))
-            OnExampleButtonPressed?.Invoke();
+        // DEBUG
+        if (Input.GetKeyDown(KeyCode.F))
+            EventsManager.Instance.DEBUG_OnDrawCardsButtonPressed?.Invoke();
     }
 
     void Awake()
