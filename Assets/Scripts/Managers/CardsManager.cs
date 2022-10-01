@@ -8,9 +8,10 @@ public class CardsManager : MonoBehaviour
 	[SerializeField] List<IntToGameObjectDictionary> CardsList;
 
 	[SerializeField] Transform handCardsParent;
-	[SerializeField] float distanceBetweenCards = 0.5f;
+	[SerializeField] Vector2 distanceBetweenCards = new Vector2(0.5f, 0.1f);
+	[SerializeField] float rotationBetweenCards = 5.0f;
 
-	float offsetBetweenCards;
+	Vector2 offsetBetweenCards;
 	GameObject spawnedCard;
 	bool isFirstShuffle = true;
 	float firstCardPosition;
@@ -21,14 +22,14 @@ public class CardsManager : MonoBehaviour
 	List<GameObject> cardsInHand = new List<GameObject>();
 	List<int> discardPile = new List<int>();
 	int numOfCardsInHand { get { return cardsInHand.Count; } }
+	public int NumOfCardsInDiscardPile { get { return discardPile.Count; } }
+	public int NumOfCardsInDrawPile { get { return drawableCardsInOrder.Count; } }
 
 	Dictionary<int, GameObject> cardDictionary = new Dictionary<int, GameObject>();
 	Dictionary<GameObject, int> cardIDsDictionary = new Dictionary<GameObject, int>();
 
-	// TODO: Remove card from draw pile when drawn.
 	// TODO: Shuffle when there are no more cards in the draw pile.
 	// TODO: Add card to discard pile when played.
-	// TODO: Display the amount of cards left in the draw and discard pile.
 
 	public void PlayCard(GameObject cardPlayed)
     {
@@ -45,9 +46,10 @@ public class CardsManager : MonoBehaviour
 
         for (int i = 0; i < numOfCards; i++)
         {
-			SpawnCard(GetCardFromId(drawableCardsInOrder[i]));
+			SpawnCard(GetCardFromId(drawableCardsInOrder[0]));
 			spawnedCard.GetComponent<CardDisplay>().ChangeSortingLayer((CardSortingLayer)i);
 			cardsInHand.Add(spawnedCard);
+			drawableCardsInOrder.RemoveAt(0);
 
 			EventsManager.Instance.OnCardDrawn?.Invoke();
         }
@@ -77,13 +79,21 @@ public class CardsManager : MonoBehaviour
 	void PositionCardsInHand()
     {
 		offsetBetweenCards = distanceBetweenCards;
-		float firstCardPosition = -Mathf.Floor((float)numOfCardsInHand / 2) * distanceBetweenCards;
+		Vector2 firstCardPosition = new Vector2(-Mathf.Floor((float)numOfCardsInHand / 2) * distanceBetweenCards.x,
+			-Mathf.Floor((float)numOfCardsInHand / 2) * distanceBetweenCards.y);
+		float firstCardRotation = Mathf.Floor((float)numOfCardsInHand / 2) * rotationBetweenCards;
 		if (numOfCardsInHand % 2 == 0)
-			firstCardPosition += (distanceBetweenCards / 2);
+		{
+			firstCardPosition += new Vector2((distanceBetweenCards.x / 2), (distanceBetweenCards.y / 2));
+			firstCardRotation -= rotationBetweenCards / 2;
+		}
 
         for (int i = 0; i < numOfCardsInHand; i++)
         {
-			cardsInHand[i].transform.localPosition = new Vector3(firstCardPosition + (i * offsetBetweenCards), 0);
+			cardsInHand[i].transform.localPosition = new Vector3(firstCardPosition.x + (i * offsetBetweenCards.x),
+				GetCardYOffset(firstCardPosition.y, i));
+			cardsInHand[i].transform.localRotation = Quaternion.Euler(0, 0, firstCardRotation - 
+				(rotationBetweenCards * i));
 		}
 	}
 
@@ -109,6 +119,21 @@ public class CardsManager : MonoBehaviour
 			cardIDsDictionary[cardIds.Object] = cardIds.ID;
         }
     }
+
+	float GetCardYOffset(float firstCardYPosition, int currentCardCount)
+    {
+		int floorOfHalfCardsInHand = Mathf.FloorToInt(numOfCardsInHand / 2);
+		float offsetBonus = 0;
+		if (numOfCardsInHand % 2 == 0)
+			offsetBonus += distanceBetweenCards.y / 2;
+
+		if (currentCardCount < floorOfHalfCardsInHand)
+			return ((-currentCardCount + floorOfHalfCardsInHand) * -distanceBetweenCards.y) + offsetBonus;
+		else if (currentCardCount > Mathf.CeilToInt(numOfCardsInHand / 2))
+			return ((currentCardCount - floorOfHalfCardsInHand) * -distanceBetweenCards.y) - offsetBonus;
+		else
+			return -offsetBonus;
+	}
 
 	GameObject GetCardFromId(int ID)
     {
