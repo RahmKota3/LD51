@@ -251,9 +251,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac4afcc121adf645a276773e60e92ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardsList:
+  - ID: 0
+    Object: {fileID: 1297520357654707635, guid: 018c5a5741011f1419a2869814a96223, type: 3}
+  - ID: 1
+    Object: {fileID: 7183750199927187202, guid: 9097d23564841e04c8eecd69093d4752, type: 3}
   handCardsParent: {fileID: 1881944996}
   distanceBetweenCards: 0.5
-  _cardPlaceholder: {fileID: 1297520357654707635, guid: 018c5a5741011f1419a2869814a96223, type: 3}
+  startingCardData: {fileID: 11400000, guid: afe51de134bc6a94fb420aa5e3fcc09f, type: 2}
 --- !u!1 &1881944995
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881944995}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.5, z: 0}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
