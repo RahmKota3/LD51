@@ -15,8 +15,6 @@ public class LevelManager : MonoBehaviour
 
 	Dictionary<LevelType, string> levelTypesAndTheirNames = new Dictionary<LevelType, string>();
 
-	public System.Action OnBeforeSceneLoad;
-	public System.Action OnAfterSceneLoad;
 
 	public void LoadLevel(LevelType levelToLoad)
 	{
@@ -26,14 +24,14 @@ public class LevelManager : MonoBehaviour
 			return;
         }
 
-		OnBeforeSceneLoad?.Invoke();
+		EventsManager.Instance.OnBeforeSceneLoad?.Invoke();
 
 		SceneManager.LoadScene(levelTypesAndTheirNames[levelToLoad]);
 	}
 
 	void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-		OnAfterSceneLoad?.Invoke();
+		EventsManager.Instance.OnAfterSceneLoad?.Invoke();
     }
 
 	IEnumerator LoadStartSceneAtTheEndOfFrame()

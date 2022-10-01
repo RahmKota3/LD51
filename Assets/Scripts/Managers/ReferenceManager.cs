@@ -35,7 +35,7 @@ public class ReferenceManager : MonoBehaviour
 		Instance = this;
 
 		if(LevelManager.Instance != null)
-			LevelManager.Instance.OnAfterSceneLoad += OnSceneLoaded;
+			EventsManager.Instance.OnAfterSceneLoad += OnSceneLoaded;
 
 		if(CurrentCamera == null)
 			FindACamera();
