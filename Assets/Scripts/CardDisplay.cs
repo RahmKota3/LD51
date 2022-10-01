@@ -9,11 +9,11 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] Card cardData;
 
     [Header("Display elements")]
-    [SerializeField] TextMeshPro NameBox;
-    [SerializeField] TextMeshPro DescriptionBox;
-    [SerializeField] TextMeshPro EffectStrengthTextBox;
-    [SerializeField] SpriteRenderer CardIcon;
-    [SerializeField] SpriteRenderer EffectIcon;
+    [SerializeField] TextMeshPro nameBox;
+    [SerializeField] TextMeshPro descriptionBox;
+    [SerializeField] TextMeshPro effectStrengthTextBox;
+    [SerializeField] SpriteRenderer cardIcon;
+    [SerializeField] SpriteRenderer effectIcon;
 
     [ContextMenu("Populate card")]
     public void DisplayCard()
@@ -24,10 +24,10 @@ public class CardDisplay : MonoBehaviour
             return;
         }
 
-        NameBox.text = cardData.Name;
-        DescriptionBox.text = string.Format(cardData.Description, cardData.EffectStrength);
-        EffectStrengthTextBox.text = cardData.EffectStrength.ToString();
-        CardIcon.sprite = cardData.CardIcon;
-        EffectIcon.sprite = cardData.EffectIcon;
+        nameBox.text = cardData.Name;
+        descriptionBox.text = string.Format(cardData.Description, cardData.EffectStrength);
+        effectStrengthTextBox.text = cardData.EffectStrength.ToString();
+        cardIcon.sprite = cardData.CardIcon;
+        effectIcon.sprite = cardData.EffectIcon;
     }
 }

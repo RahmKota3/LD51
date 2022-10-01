@@ -302,11 +302,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardData: {fileID: 0}
-  NameBox: {fileID: 1383587670236467991}
-  DescriptionBox: {fileID: 1383587669131722503}
-  EffectStrengthTextBox: {fileID: 5866561415143653958}
-  CardIcon: {fileID: 1383587669710451485}
-  EffectIcon: {fileID: 8165786868584675723}
+  nameBox: {fileID: 1383587670236467991}
+  descriptionBox: {fileID: 1383587669131722503}
+  effectStrengthTextBox: {fileID: 5866561415143653958}
+  cardIcon: {fileID: 1383587669710451485}
+  effectIcon: {fileID: 8165786868584675723}
 --- !u!1 &1383587669710451483
 GameObject:
   m_ObjectHideFlags: 0
