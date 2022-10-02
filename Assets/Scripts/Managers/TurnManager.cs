@@ -1,10 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
 	public static TurnManager Instance;
 
-	bool isPlayersTurn = true;
+	public bool IsPlayersTurn { get; private set; } = true;
 
 	int enemyAttacks = 0;
 
@@ -13,29 +14,40 @@ public class TurnManager : MonoBehaviour
 		enemyAttacks += 1;
 
 		if (enemyAttacks == ReferenceManager.Instance.NumOfEnemies)
-			EndTurn();
+		{
+			StartCoroutine(EndTurnAfterAWhile(0.25f));
+		}
     }
 
-	public void EndTurn()
+	public void EndPlayerTurn()
     {
-		if(isPlayersTurn)
-        {
-			isPlayersTurn = false;
-			EventsManager.Instance.OnEnemyTurnStart?.Invoke();
-        }
-        else
-        {
-			isPlayersTurn = true;
-			EventsManager.Instance.OnPlayerTurnStart?.Invoke();
-        }
+		if (IsPlayersTurn == false)
+			return;
+
+		IsPlayersTurn = !IsPlayersTurn;
+		EventsManager.Instance.OnEnemyTurnStart?.Invoke();
+    }
+
+	public void EndEnemyTurn()
+    {
+		if (IsPlayersTurn)
+			return;
+
+		IsPlayersTurn = !IsPlayersTurn;
+		EventsManager.Instance.OnPlayerTurnStart?.Invoke();
 
 		enemyAttacks = 0;
+	}
+
+	IEnumerator EndTurnAfterAWhile(float seconds)
+    {
+		yield return new WaitForSeconds(seconds);
+
+		EndEnemyTurn();
     }
 	
 	void Awake()
 	{
 		Instance = this;
-
-		EventsManager.Instance.OnDebugButtonPressed += EndTurn;
 	}
 }

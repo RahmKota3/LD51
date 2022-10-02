@@ -7,6 +7,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6435917271576931675}
+    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IncreaseTimer
+      objectReference: {fileID: 0}
+    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: IncreaseTime, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1202009803936184645, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: cardData
       value: 
@@ -61,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1383587669605804963, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Name
-      value: Time+2
+      value: Time+
       objectReference: {fileID: 0}
     - target: {fileID: 1383587669710451485, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Sprite
@@ -101,3 +129,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+--- !u!1 &997644589653692302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1383587669605804963, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+  m_PrefabInstance: {fileID: 2227916017425769517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6435917271576931675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997644589653692302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3af8443c9676194e8af7d1337788a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardDisplay: {fileID: 1028298854010183016}
+--- !u!114 &1028298854010183016 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1202009803936184645, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+  m_PrefabInstance: {fileID: 2227916017425769517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997644589653692302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb58d956e0b570d458401a61958e5fb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

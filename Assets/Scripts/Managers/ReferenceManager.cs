@@ -21,6 +21,11 @@ public class ReferenceManager : MonoBehaviour
 
 	public int NumOfEnemies = 2;
 
+	public void DecreaseNumAliveEnemies()
+    {
+		NumOfEnemies -= 1;
+    }
+
 	void OnSceneLoaded()
     {
 		FindACamera();

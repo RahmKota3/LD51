@@ -990,6 +990,7 @@ GameObject:
   - component: {fileID: 2767486741255654888}
   - component: {fileID: 273422265831609309}
   - component: {fileID: -8987993880364838504}
+  - component: {fileID: 4223100002769409114}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Untagged
@@ -1060,6 +1061,18 @@ MonoBehaviour:
       - m_Target: {fileID: -8987993880364838504}
         m_TargetAssemblyTypeName: EndTurn, Assembly-CSharp
         m_MethodName: TriggerEndTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4223100002769409114}
+        m_TargetAssemblyTypeName: UpdateAliveEnemies, Assembly-CSharp
+        m_MethodName: UpdateNumAliveEnemies
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1237,5 +1250,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de13b1d22dfb2d649b7b1cb72fb442c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4223100002769409114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910269077622021333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ca42c8979dbee469213f6df198b10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

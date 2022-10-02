@@ -8,9 +8,15 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timer;
     [HideInInspector] public float TimeLeftInTurn = 10f;
 
+    //bool playersTurn { get { return TurnManager.Instance.IsPlayersTurn; } }
     bool playersTurn = true;
 
     string format;
+
+    public void IncreaseTime(float increaseBy)
+    {
+        TimeLeftInTurn += increaseBy;
+    }
 
     void DecreaseTime()
     {
@@ -18,8 +24,7 @@ public class Timer : MonoBehaviour
 
         if(TimeLeftInTurn <= 0)
         {
-            timer.gameObject.SetActive(false);
-            TurnManager.Instance.EndTurn();
+            TurnManager.Instance.EndPlayerTurn();
         }
     }
 
@@ -36,13 +41,20 @@ public class Timer : MonoBehaviour
     void ResetTimer()
     {
         TimeLeftInTurn = 10f;
-        playersTurn = true;
         timer.gameObject.SetActive(true);
+        playersTurn = true;
+    }
+
+    void HandleEnemyTurnStart()
+    {
+        timer.gameObject.SetActive(false);
+        playersTurn = false;
     }
 
     private void Start()
     {
         EventsManager.Instance.OnPlayerTurnStart += ResetTimer;
+        EventsManager.Instance.OnEnemyTurnStart += HandleEnemyTurnStart;
         ResetTimer();
     }
 
@@ -58,5 +70,6 @@ public class Timer : MonoBehaviour
     private void OnDestroy()
     {
         EventsManager.Instance.OnPlayerTurnStart -= ResetTimer;
+        EventsManager.Instance.OnEnemyTurnStart -= HandleEnemyTurnStart;
     }
 }

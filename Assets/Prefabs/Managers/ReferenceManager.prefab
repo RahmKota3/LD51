@@ -49,7 +49,11 @@ MonoBehaviour:
   CurrentCamera: {fileID: 0}
   PlayerStatsController: {fileID: 0}
   IsCardSelected: 0
+  SelectedCardPos: {x: 0, y: 0, z: 0}
+  TargettingArrowObj: {fileID: 0}
+  SelectedEnemy: {fileID: 0}
   PlayCardYPosition: -0.75
+  NumOfEnemies: 4
 --- !u!114 &1276207384
 MonoBehaviour:
   m_ObjectHideFlags: 0
