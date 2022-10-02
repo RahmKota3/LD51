@@ -45,12 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9342a6016cc8b06429b1535ebbc87c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartScene: 1
+  StartScene: 2
   ScenesAndTheirNames:
   - SceneEnum: 0
     SceneName: Loader
   - SceneEnum: 1
     SceneName: GameplayScene
+  - SceneEnum: 2
+    SceneName: MainMenu
 --- !u!114 &1119612799
 MonoBehaviour:
   m_ObjectHideFlags: 0
