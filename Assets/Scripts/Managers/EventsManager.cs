@@ -27,7 +27,11 @@ public class EventsManager : MonoBehaviour
 	public Action OnPlayerTurnStart;
 	#endregion
 
-	void Awake()
+	#region Encounter
+	public Action OnEncounterFinished;
+    #endregion
+
+    void Awake()
 	{
 		Instance = this;
 	}

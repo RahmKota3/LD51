@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attributes:
   - Attribute: 1
-    Value: 5
+    Value: 1
     MinValue: 0
     MaxValue: 9999
   - Attribute: 2
-    Value: 5
+    Value: 1
     MinValue: 0
     MaxValue: 9999
   - Attribute: 4
-    Value: 5
+    Value: 1
     MinValue: 0
     MaxValue: 9999
   - Attribute: 6

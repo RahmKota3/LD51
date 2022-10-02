@@ -369,5 +369,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 127834785829055644, guid: 796c5e90899de204b8ed516552841fe9, type: 3}
+      propertyPath: m_text
+      value: Carddown!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 796c5e90899de204b8ed516552841fe9, type: 3}

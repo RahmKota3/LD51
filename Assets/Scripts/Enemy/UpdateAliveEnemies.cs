@@ -6,6 +6,6 @@ public class UpdateAliveEnemies : MonoBehaviour
 {
     public void UpdateNumAliveEnemies()
     {
-        ReferenceManager.Instance.DecreaseNumAliveEnemies();
+        EncounterManager.Instance.HandleEnemyDeath();
     }
 }

@@ -13,7 +13,7 @@ public class TurnManager : MonoBehaviour
     {
 		enemyAttacks += 1;
 
-		if (enemyAttacks == ReferenceManager.Instance.NumOfEnemies)
+		if (enemyAttacks == ReferenceManager.Instance.NumOfAliveEnemies)
 		{
 			StartCoroutine(EndTurnAfterAWhile(0.25f));
 		}

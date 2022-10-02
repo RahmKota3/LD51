@@ -19,12 +19,9 @@ public class ReferenceManager : MonoBehaviour
 
 	public float PlayCardYPosition = -1;
 
-	public int NumOfEnemies = 2;
+	public int NumOfAliveEnemies { get { return EncounterManager.Instance.AliveEnemiesInEncounter; } }
 
-	public void DecreaseNumAliveEnemies()
-    {
-		NumOfEnemies -= 1;
-    }
+	public EncounterDifficulty CurrentEncounterDifficulty = EncounterDifficulty.Easy;
 
 	void OnSceneLoaded()
     {

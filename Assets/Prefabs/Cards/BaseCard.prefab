@@ -230,6 +230,7 @@ MonoBehaviour:
   background: {fileID: 1383587669900435980}
   quickInfoBackground: {fileID: 9176627120198496971}
   layerInHand: 0
+  DefaultZPosition: -999
 --- !u!61 &6765813834867975786
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -303,6 +304,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ebf1b2eaaa99b4ba0d92c64240a5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPlayActions:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1383587669710451483
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,5 +17,7 @@ public class ShowEnemyDamage : UpdateableTextBase
     private void Start()
     {
         statsController.OnAttributeChanged += HandleDamageChange;
+
+        HandleDamageChange(AttributeType.CurrentDamage, statsController.GetAttributeValue(AttributeType.CurrentDamage));
     }
 }

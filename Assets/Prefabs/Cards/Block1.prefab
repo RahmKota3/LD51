@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 82c19d5c85d7a3745ae2e609500664cb, type: 2}
     - target: {fileID: 1383587669131722503, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_text
-      value: Add 5 block.
+      value: Add 1 block.
       objectReference: {fileID: 0}
     - target: {fileID: 1383587669605804962, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_RootOrder
@@ -121,7 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866561415143653958, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_text
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8165786868584675723, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Sprite

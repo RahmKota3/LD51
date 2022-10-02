@@ -16,5 +16,6 @@ MonoBehaviour:
   Description: Add {0} block.
   CardIcon: {fileID: 21300000, guid: a0c17fb778984cc48bcde19443630852, type: 3}
   EffectIcon: {fileID: 21300000, guid: eab8f24fdb48d0f428939402ac8d4b64, type: 3}
-  EffectStrength: 5
+  EffectStrength: 1
   CardColor: {r: 0.39215687, g: 0.56078434, b: 1, a: 1}
+  ID: 1
