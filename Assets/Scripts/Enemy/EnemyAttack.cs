@@ -6,12 +6,15 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] StatsController statsController;
+    [SerializeField] AnimationController anim;
 
     int damage;
 
     public void AttackPlayer()
     {
+        anim.PlayAttackAnimation();
         ReferenceManager.Instance.PlayerStatsController.IncreaseAttribute(AttributeType.CurrentHp, -damage);
+        TurnManager.Instance.EnemyAttacked();
     }
 
     void HandleDamageReductionChange(AttributeType type, float amount)
@@ -22,22 +25,28 @@ public class EnemyAttack : MonoBehaviour
         damage = (int)amount;
     }
 
-    void HandleTurnChange()
+    void HandleEnemyTurnStart()
+    {
+        AttackPlayer();
+    }
+
+    void HandlePlayerTurnStart()
     {
         statsController.SetAttributeTo(AttributeType.CurrentDamage, statsController.GetAttributeValue(AttributeType.Damage));
     }
 
     private void Start()
     {
-        //EventsManager.Instance.DEBUG_OnDrawCardsButtonPressed += AttackPlayer;
-        EventsManager.Instance.OnEnemyTurnStart += HandleTurnChange;
+        EventsManager.Instance.OnEnemyTurnStart += HandleEnemyTurnStart;
+        EventsManager.Instance.OnPlayerTurnStart += HandlePlayerTurnStart;
         statsController.OnAttributeChanged += HandleDamageReductionChange;
 
-        HandleTurnChange();
+        HandlePlayerTurnStart();
     }
 
     private void OnDestroy()
     {
-        EventsManager.Instance.OnEnemyTurnStart -= HandleTurnChange;
+        EventsManager.Instance.OnEnemyTurnStart -= HandleEnemyTurnStart;
+        EventsManager.Instance.OnPlayerTurnStart -= HandlePlayerTurnStart;
     }
 }

@@ -16,6 +16,9 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (InputManager.Instance.InputBlocked)
+            return;
+
         if (ReferenceManager.Instance.IsCardSelected)
             return;
 
@@ -32,6 +35,9 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (InputManager.Instance.InputBlocked)
+            return;
+
         isSelected = false;
         ReferenceManager.Instance.IsCardSelected = false;
 
@@ -52,6 +58,9 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (InputManager.Instance.InputBlocked)
+            return;
+
         if (ReferenceManager.Instance.IsCardSelected)
             return;
 
@@ -60,6 +69,9 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (InputManager.Instance.InputBlocked)
+            return;
+
         //if (isSelected)
         //    return;
 
@@ -68,6 +80,9 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
 
     void HandleMouseUp()
     {
+        if (InputManager.Instance.InputBlocked)
+            return;
+
         if (isSelected == false || canTarget == false)
             return;
 

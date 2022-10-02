@@ -6,4 +6,5 @@ public enum AttributeType { None, MaxHp, CurrentHp, MaxCardsInHand, Damage, Pois
 public class Globals
 {
 	public const string MouseOverCardAnimBool = "MouseOver";
+	public const string EnemyAttackAnimTrigger = "Attack";
 }

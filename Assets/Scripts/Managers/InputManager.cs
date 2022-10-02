@@ -6,21 +6,23 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
 
-    bool inputBlocked = false;
+    public bool InputBlocked { get; private set; } = false;
 
     public Vector2 MousePos { get; private set; }
 
     void CheckForInput()
     {
-        if (inputBlocked)
+#if UNITY_EDITOR
+        // DEBUG
+        if (Input.GetKeyDown(KeyCode.F))
+            EventsManager.Instance.OnDebugButtonPressed?.Invoke();
+#endif
+
+        if (InputBlocked)
             return;
 
         if (Input.GetMouseButtonUp(0))
             EventsManager.Instance.OnLeftMouseUp?.Invoke();
-
-        // DEBUG
-        if (Input.GetKeyDown(KeyCode.F))
-            EventsManager.Instance.DEBUG_OnDrawCardsButtonPressed?.Invoke();
     }
 
     void UpdateMousePos()
@@ -33,9 +35,31 @@ public class InputManager : MonoBehaviour
         MousePos = ReferenceManager.Instance.CurrentCamera.ScreenToWorldPoint(Input.mousePosition);
     }
 
+    void BlockInput()
+    {
+        InputBlocked = true;
+    }
+
+    void UnblockInput()
+    {
+        InputBlocked = false;
+    }
+
     void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        EventsManager.Instance.OnPlayerTurnStart += UnblockInput;
+        EventsManager.Instance.OnEnemyTurnStart += BlockInput;
+    }
+
+    private void OnDestroy()
+    {
+        EventsManager.Instance.OnPlayerTurnStart -= UnblockInput;
+        EventsManager.Instance.OnEnemyTurnStart -= BlockInput;
     }
 
     private void Update()

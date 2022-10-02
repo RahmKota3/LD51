@@ -19,6 +19,8 @@ public class ReferenceManager : MonoBehaviour
 
 	public float PlayCardYPosition = -1;
 
+	public int NumOfEnemies = 2;
+
 	void OnSceneLoaded()
     {
 		FindACamera();

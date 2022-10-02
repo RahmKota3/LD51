@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 246950264}
   - component: {fileID: 246950265}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ Transform:
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1577769003625006607}
+  m_Father: {fileID: 1233548175647684762}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &246950265
@@ -687,6 +687,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2336156986726624457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1233548175647684762}
+  m_Layer: 0
+  m_Name: Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1233548175647684762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2336156986726624457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 246950264}
+  m_Father: {fileID: 1577769003625006607}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4907029380998704994
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +987,9 @@ GameObject:
   - component: {fileID: 356433111024673731}
   - component: {fileID: 5992093030283462928}
   - component: {fileID: 6370263052427137185}
+  - component: {fileID: 2767486741255654888}
+  - component: {fileID: 273422265831609309}
+  - component: {fileID: -8987993880364838504}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Untagged
@@ -974,7 +1009,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 246950264}
+  - {fileID: 1233548175647684762}
   - {fileID: 937981659}
   - {fileID: 415508328}
   m_Father: {fileID: 0}
@@ -1013,6 +1048,18 @@ MonoBehaviour:
       - m_Target: {fileID: 6370263052427137185}
         m_TargetAssemblyTypeName: HandleDeath, Assembly-CSharp
         m_MethodName: HandleEnemyDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -8987993880364838504}
+        m_TargetAssemblyTypeName: EndTurn, Assembly-CSharp
+        m_MethodName: TriggerEndTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1079,6 +1126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsController: {fileID: 2060957235884748455}
+  anim: {fileID: 273422265831609309}
 --- !u!61 &607461637
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1145,4 +1193,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc54d373782375942a62f8400dd02142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpController: {fileID: 0}
+  hpController: {fileID: 2060957235884748454}
+--- !u!95 &2767486741255654888
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910269077622021333}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 827fa08f009d08c48a2ed2367343a4fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &273422265831609309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910269077622021333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aac7165d00aefd4eb7eb9031ea4625c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 2767486741255654888}
+--- !u!114 &-8987993880364838504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910269077622021333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de13b1d22dfb2d649b7b1cb72fb442c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
