@@ -43,6 +43,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         EventsManager.Instance.OnPlayerTurnStart += ResetTimer;
+        ResetTimer();
     }
 
     private void Update()
