@@ -17,6 +17,8 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] SpriteRenderer background;
     [SerializeField] SpriteRenderer quickInfoBackground;
 
+    [HideInInspector] public CardSortingLayer layerInHand;
+
     [ContextMenu("Populate card")]
     public void DisplayCard()
     {
@@ -37,6 +39,9 @@ public class CardDisplay : MonoBehaviour
 
     public void ChangeSortingLayer(CardSortingLayer layer)
     {
+        if(layer != CardSortingLayer.HighlightedCard)
+            layerInHand = layer;
+
         nameBox.sortingLayerID = SortingLayer.NameToID(layer.ToString());
         descriptionBox.sortingLayerID = SortingLayer.NameToID(layer.ToString());
         effectStrengthTextBox.sortingLayerID = SortingLayer.NameToID(layer.ToString());
@@ -44,6 +49,11 @@ public class CardDisplay : MonoBehaviour
         effectIcon.sortingLayerName = layer.ToString();
         background.sortingLayerName = layer.ToString();
         quickInfoBackground.sortingLayerName = layer.ToString();
+    }
+
+    public void ShowCardAboveOhers()
+    {
+        ChangeSortingLayer(CardSortingLayer.HighlightedCard);
     }
 
     void UpdateSpriteColor()

@@ -37,6 +37,7 @@ public class CardsManager : MonoBehaviour
     {
 		cardsInHand.Remove(cardPlayed);
 		discardPile.Add(cardPlayed.GetComponent<CardDisplay>().cardData.ID);
+		cardPlayed.transform.position = new Vector3(999, 999);
 		SimplePool.Despawn(cardPlayed);
 		PositionCardsInHand();
 		EventsManager.Instance.OnCardPlayed?.Invoke();
@@ -104,7 +105,7 @@ public class CardsManager : MonoBehaviour
         for (int i = 0; i < numOfCardsInHand; i++)
         {
 			cardsInHand[i].transform.localPosition = new Vector3(firstCardPosition.x + (i * offsetBetweenCards.x),
-				GetCardYOffset(firstCardPosition.y, i));
+				GetCardYOffset(firstCardPosition.y, i), -i);
 			cardsInHand[i].transform.localRotation = Quaternion.Euler(0, 0, firstCardRotation - 
 				(rotationBetweenCards * i));
 		}

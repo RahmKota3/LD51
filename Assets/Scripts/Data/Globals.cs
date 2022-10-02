@@ -5,5 +5,5 @@ public enum AttributeType { None, MaxHp, CurrentHp, MaxCardsInHand }
 
 public class Globals
 {
-	
+	public const string MouseOverCardAnimBool = "MouseOver";
 }
