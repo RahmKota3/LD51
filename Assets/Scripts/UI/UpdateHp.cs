@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class UpdateHp : UpdateableTextBase
 {
+    [SerializeField] StatsController stats;
+
     public override void UpdateTextWithTwoNumbers(int numberAToDisplay, int numberBToDisplay)
     {
-        numberBToDisplay = (int)ReferenceManager.Instance.PlayerStatsController.GetAttributeValue(AttributeType.MaxHp);
+        numberBToDisplay = (int)stats.GetAttributeValue(AttributeType.MaxHp);
         base.UpdateTextWithTwoNumbers(numberAToDisplay, numberBToDisplay);
     }
 
@@ -17,13 +19,13 @@ public class UpdateHp : UpdateableTextBase
 
     private void Start()
     {
-        ReferenceManager.Instance.PlayerStatsController.OnHealthChanged += HandleHpUpdate;
+        stats.OnHealthChanged += HandleHpUpdate;
 
-        HandleHpUpdate(ReferenceManager.Instance.PlayerStatsController.GetAttributeValue(AttributeType.CurrentHp));
+        HandleHpUpdate(stats.GetAttributeValue(AttributeType.CurrentHp));
     }
 
     private void OnDestroy()
     {
-        ReferenceManager.Instance.PlayerStatsController.OnHealthChanged -= HandleHpUpdate;
+        stats.OnHealthChanged -= HandleHpUpdate;
     }
 }

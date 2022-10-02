@@ -32,16 +32,9 @@ public class HealthController : MonoBehaviour
             OnDeath?.Invoke();
     }
 
-    void TakeDmg()
-    {
-        stats.IncreaseAttribute(AttributeType.CurrentHp, -5);
-    }
-
     private void Start()
     {
         stats.OnBeforeHealthChange += HandleHealthChange;
-
-        EventsManager.Instance.DEBUG_OnDrawCardsButtonPressed += TakeDmg;
 
         stats.SetAttributeTo(AttributeType.CurrentHp, stats.GetAttributeValue(AttributeType.MaxHp));
     }

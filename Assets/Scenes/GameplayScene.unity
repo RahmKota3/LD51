@@ -440,6 +440,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ec98aa2fa393cc40b75a6d40e89528e, type: 3}
+--- !u!114 &5243972304222676144 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5243972302721375295, guid: 9ec98aa2fa393cc40b75a6d40e89528e, type: 3}
+  m_PrefabInstance: {fileID: 5243972304222676143}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4bae88e09673804abd24faf9cd7d5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8084826531604828782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -447,6 +458,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 141883654122870057, guid: e4cb743a8b2876743a327d10150e4b83, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 5243972304222676144}
+    - target: {fileID: 660988232366711999, guid: e4cb743a8b2876743a327d10150e4b83, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 5243972304222676144}
     - target: {fileID: 8084826532684946406, guid: e4cb743a8b2876743a327d10150e4b83, type: 3}
       propertyPath: m_Pivot.x
       value: 0

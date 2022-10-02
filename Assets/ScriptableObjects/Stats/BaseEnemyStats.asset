@@ -26,6 +26,6 @@ MonoBehaviour:
     MinValue: 0
     MaxValue: 9999
   - Attribute: 6
-    Value: 0
+    Value: 2
     MinValue: 0
     MaxValue: 9999

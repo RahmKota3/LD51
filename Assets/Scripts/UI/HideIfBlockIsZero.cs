@@ -2,23 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpdateBlock : UpdateableTextBase
+public class HideIfBlockIsZero : MonoBehaviour
 {
     [SerializeField] StatsController stats;
+    [SerializeField] GameObject objectToHide;
 
     void HandleBlockChange(AttributeType type, float value)
     {
         if (type != AttributeType.Block)
             return;
 
-        base.UpdateTextWithNumber((int)value);
+        if (value <= 0)
+            objectToHide.SetActive(false);
+        else
+            objectToHide.SetActive(true);
     }
 
     private void Start()
     {
         stats.OnAttributeChanged += HandleBlockChange;
 
-        base.UpdateTextWithNumber((int)stats.GetAttributeValue(AttributeType.Block));
+        HandleBlockChange(AttributeType.Block, stats.GetAttributeValue(AttributeType.Block));
     }
 
     private void OnDestroy()
