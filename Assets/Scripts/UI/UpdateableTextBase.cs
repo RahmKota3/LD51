@@ -12,4 +12,9 @@ public class UpdateableTextBase : MonoBehaviour
     {
         textComponent.text = string.Format(textToDisplay, numberToDisplay);
     }
+
+    public virtual void UpdateTextWithTwoNumbers(int numberAToDisplay, int numberBToDisplay)
+    {
+        textComponent.text = string.Format(textToDisplay, numberAToDisplay, numberBToDisplay);
+    }
 }

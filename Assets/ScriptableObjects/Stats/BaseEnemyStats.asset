@@ -10,18 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 776e42dc9b0fa6f498a8e7c77339f2c6, type: 3}
-  m_Name: PlayerStats
+  m_Name: BaseEnemyStats
   m_EditorClassIdentifier: 
   Attributes:
   - Attribute: 1
-    Value: 20
+    Value: 25
     MinValue: 0
     MaxValue: 9999
   - Attribute: 2
-    Value: 20
+    Value: 25
     MinValue: 0
     MaxValue: 9999
-  - Attribute: 3
-    Value: 6
+  - Attribute: 4
+    Value: 5
+    MinValue: 0
+    MaxValue: 9999
+  - Attribute: 6
+    Value: 0
     MinValue: 0
     MaxValue: 9999

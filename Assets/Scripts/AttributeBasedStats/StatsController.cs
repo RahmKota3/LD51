@@ -5,18 +5,20 @@ using UnityEngine;
 public class StatsController : MonoBehaviour
 {
     [SerializeField] Stats statsPrefab;
-    Stats currentStats;
+    [HideInInspector] public Stats CurrentStats;
 
-    Dictionary<AttributeType, int> attributeAndItsOrder = new Dictionary<AttributeType, int>();
+    public Dictionary<AttributeType, int> AttributeAndItsOrder = new Dictionary<AttributeType, int>();
 
     public System.Action<AttributeType, float> OnAttributeChanged;
+    public System.Action<float> OnBeforeHealthChange;
+    public System.Action<float> OnHealthChanged;
 
     public float GetAttributeValue(AttributeType type)
     {
         if (StatsContainAttribute(type) == false)
             return -Mathf.Infinity;
 
-        return currentStats.Attributes[attributeAndItsOrder[type]].Value;
+        return CurrentStats.Attributes[AttributeAndItsOrder[type]].Value;
     }
 
     public void IncreaseAttribute(AttributeType type, float increaseBy)
@@ -24,8 +26,14 @@ public class StatsController : MonoBehaviour
         if (CanModifyAttribute(type) == false)
             return;
 
+        if(type == AttributeType.CurrentHp)
+        {
+            OnBeforeHealthChange?.Invoke(increaseBy);
+            return;
+        }
+
         SerializableAttributeDictionary attributeToIncrease = 
-            currentStats.Attributes[attributeAndItsOrder[type]];
+            CurrentStats.Attributes[AttributeAndItsOrder[type]];
 
         attributeToIncrease.Value = Mathf.Clamp(attributeToIncrease.Value + increaseBy, 
             attributeToIncrease.MinValue, attributeToIncrease.MaxValue);
@@ -39,7 +47,7 @@ public class StatsController : MonoBehaviour
             return;
 
         SerializableAttributeDictionary attributeToIncrease =
-            currentStats.Attributes[attributeAndItsOrder[type]];
+            CurrentStats.Attributes[AttributeAndItsOrder[type]];
 
         attributeToIncrease.Value = Mathf.Clamp(value, attributeToIncrease.MinValue, 
             attributeToIncrease.MaxValue);
@@ -49,7 +57,7 @@ public class StatsController : MonoBehaviour
 
     bool StatsContainAttribute(AttributeType type)
     {
-        if (attributeAndItsOrder.ContainsKey(type))
+        if (AttributeAndItsOrder.ContainsKey(type))
         {
             return true;
         }
@@ -64,7 +72,7 @@ public class StatsController : MonoBehaviour
     {
         for (int i = 0; i < statsPrefab.Attributes.Count; i++)
         {
-            attributeAndItsOrder[statsPrefab.Attributes[i].Attribute] = i;
+            AttributeAndItsOrder[statsPrefab.Attributes[i].Attribute] = i;
         }
     }
 
@@ -80,7 +88,7 @@ public class StatsController : MonoBehaviour
 
     private void Awake()
     {
-        currentStats = Instantiate(statsPrefab);
+        CurrentStats = Instantiate(statsPrefab);
         SetAttributesInOrder();
     }
 }

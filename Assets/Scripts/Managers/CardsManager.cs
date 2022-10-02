@@ -154,11 +154,6 @@ public class CardsManager : MonoBehaviour
 		return cardDictionary[ID];
     }
 
-	void DEBUG_DrawHand()
-    {
-		DrawCards(FullHandCardCount);
-	}
-	
 	void Awake()
 	{
 		Instance = this;
@@ -172,7 +167,5 @@ public class CardsManager : MonoBehaviour
 		playerStatsController = ReferenceManager.Instance.PlayerStatsController;
 		ShuffleDiscardPile();
 		DrawCards(FullHandCardCount);
-
-		EventsManager.Instance.DEBUG_OnDrawCardsButtonPressed += DEBUG_DrawHand;
     }
 }
