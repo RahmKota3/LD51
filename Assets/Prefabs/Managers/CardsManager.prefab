@@ -49,6 +49,8 @@ MonoBehaviour:
     Object: {fileID: 1297520357654707635, guid: 018c5a5741011f1419a2869814a96223, type: 3}
   - ID: 1
     Object: {fileID: 7183750199927187202, guid: 9097d23564841e04c8eecd69093d4752, type: 3}
+  - ID: 2
+    Object: {fileID: 997644589653692302, guid: 45bc237a40f0995428167484ec0c92ab, type: 3}
   handCardsParent: {fileID: 0}
   distanceBetweenCards: {x: 0.5, y: 0.1}
   rotationBetweenCards: 5
