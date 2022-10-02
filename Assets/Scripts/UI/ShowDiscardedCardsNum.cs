@@ -13,6 +13,8 @@ public class ShowDiscardedCardsNum : UpdateableTextBase
     {
         EventsManager.Instance.OnCardPlayed += UpdateCardsNumber;
         EventsManager.Instance.OnCardsShuffled += UpdateCardsNumber;
+
+        UpdateCardsNumber();
     }
 
     private void OnDestroy()
