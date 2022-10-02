@@ -110,6 +110,7 @@ public class CardsManager : MonoBehaviour
 				GetCardYOffset(firstCardPosition.y, i), -i);
 			cardsInHand[i].transform.localRotation = Quaternion.Euler(0, 0, firstCardRotation - 
 				(rotationBetweenCards * i));
+			cardsInHand[i].GetComponent<CardDisplay>().DefaultZPosition = cardsInHand[i].transform.localPosition.z;
 		}
 	}
 

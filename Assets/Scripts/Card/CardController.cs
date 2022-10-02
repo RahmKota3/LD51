@@ -34,7 +34,9 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
     {
         isSelected = false;
         ReferenceManager.Instance.IsCardSelected = false;
-        transform.position = previousPosition;
+
+        if(followCursor)
+            transform.position = previousPosition;
 
         if (CanPlayCard())
         {
@@ -44,6 +46,7 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
         followCursor = false;
         HideTargettingArrow();
 
+        UnhighlightCard();
         OnPointerExit(eventData);
     }
 
@@ -57,8 +60,8 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (isSelected)
-            return;
+        //if (isSelected)
+        //    return;
 
         UnhighlightCard();
     }

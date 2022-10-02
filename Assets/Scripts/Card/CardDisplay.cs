@@ -18,7 +18,7 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] SpriteRenderer quickInfoBackground;
 
     [HideInInspector] public CardSortingLayer layerInHand;
-    float defaultZPosition = -999f;
+    public float DefaultZPosition = -999f;
 
     [ContextMenu("Populate card")]
     public void DisplayCard()
@@ -43,7 +43,6 @@ public class CardDisplay : MonoBehaviour
         if (layer != CardSortingLayer.HighlightedCard)
         {
             layerInHand = layer;
-            defaultZPosition = transform.position.z;
         }
 
         nameBox.sortingLayerID = SortingLayer.NameToID(layer.ToString());
@@ -54,10 +53,10 @@ public class CardDisplay : MonoBehaviour
         background.sortingLayerName = layer.ToString();
         quickInfoBackground.sortingLayerName = layer.ToString();
 
-        if (layer == CardSortingLayer.HighlightedCard)
-            transform.position = new Vector3(transform.position.x, transform.position.y, -50);
-        else
-            transform.position = new Vector3(transform.position.x, transform.position.y, defaultZPosition);
+        //if (layer == CardSortingLayer.HighlightedCard)
+        //    transform.position = new Vector3(transform.position.x, transform.position.y, -50);
+        //else
+        //    transform.position = new Vector3(transform.position.x, transform.position.y, DefaultZPosition);
     }
 
     public void ShowCardAboveOhers()

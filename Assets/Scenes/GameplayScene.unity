@@ -711,6 +711,10 @@ PrefabInstance:
       propertyPath: handCardsParent
       value: 
       objectReference: {fileID: 1881944996}
+    - target: {fileID: 4906490666836538862, guid: d69780ba248ffdd4e99e31dbb01b66fb, type: 3}
+      propertyPath: distanceBetweenCards.x
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d69780ba248ffdd4e99e31dbb01b66fb, type: 3}
 --- !u!1001 &5243972304222676143
