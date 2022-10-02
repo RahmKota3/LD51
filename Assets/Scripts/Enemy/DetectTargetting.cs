@@ -10,10 +10,12 @@ public class DetectTargetting : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public void OnPointerEnter(PointerEventData eventData)
     {
         highlight.SetActive(true);
+        ReferenceManager.Instance.SelectedEnemy = this.gameObject;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         highlight.SetActive(false);
+        ReferenceManager.Instance.SelectedEnemy = null;
     }
 }

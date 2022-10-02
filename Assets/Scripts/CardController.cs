@@ -10,13 +10,12 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
     [SerializeField] bool canTarget = false;
 
     bool isSelected = false;
+    bool followCursor = false;
     Vector2 offsetFromCursor = Vector2.zero;
     Vector3 previousPosition = Vector3.zero;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //CardsManager.Instance.PlayCard(this.gameObject);
-
         if (ReferenceManager.Instance.IsCardSelected)
             return;
 
@@ -37,10 +36,13 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
         ReferenceManager.Instance.IsCardSelected = false;
         transform.position = previousPosition;
 
-        if (InputManager.Instance.MousePos.y >= ReferenceManager.Instance.PlayCardYPosition)
+        if (CanPlayCard())
         {
             CardsManager.Instance.PlayCard(this.gameObject);
         }
+
+        followCursor = false;
+        HideTargettingArrow();
 
         OnPointerExit(eventData);
     }
@@ -50,8 +52,7 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
         if (ReferenceManager.Instance.IsCardSelected)
             return;
 
-        anim.SetBool(Globals.MouseOverCardAnimBool, true);
-        cardDisplay.ChangeSortingLayer(CardSortingLayer.HighlightedCard);
+        HighlightCard();
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -59,19 +60,62 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
         if (isSelected)
             return;
 
+        UnhighlightCard();
+    }
+
+    void HandleMouseUp()
+    {
+        if (isSelected == false || canTarget == false)
+            return;
+
+        OnPointerUp(new PointerEventData(EventSystem.current));
+    }
+
+    void UnhighlightCard()
+    {
         anim.SetBool(Globals.MouseOverCardAnimBool, false);
         cardDisplay.ChangeSortingLayer(cardDisplay.layerInHand);
+    }
+
+    void HighlightCard()
+    {
+        anim.SetBool(Globals.MouseOverCardAnimBool, true);
+        cardDisplay.ChangeSortingLayer(CardSortingLayer.HighlightedCard);
     }
 
     void HandleNonTargettingCard()
     {
         offsetFromCursor = (Vector2)transform.position - InputManager.Instance.MousePos;
         previousPosition = transform.position;
+
+        followCursor = true;
     }
 
     void HandleTargettingCard()
     {
+        ReferenceManager.Instance.SelectedCardPos = InputManager.Instance.MousePos;
+        ReferenceManager.Instance.TargettingArrowObj.SetActive(true);
+    }
 
+    void HideTargettingArrow()
+    {
+        ReferenceManager.Instance.TargettingArrowObj.SetActive(false);
+    }
+
+    bool CanPlayCard()
+    {
+        if (canTarget == false)
+        {
+            if (InputManager.Instance.MousePos.y >= ReferenceManager.Instance.PlayCardYPosition)
+                return true;
+        }
+        else
+        {
+            if (ReferenceManager.Instance.SelectedEnemy != null)
+                return true;
+        }
+
+        return false;
     }
 
     Vector3 GetMousePositionWithOffset()
@@ -80,9 +124,14 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
             InputManager.Instance.MousePos.y + offsetFromCursor.y, transform.position.z);
     }
 
+    void Start()
+    {
+        EventsManager.Instance.OnLeftMouseUp += HandleMouseUp;
+    }
+
     void LateUpdate()
     {
-        if (isSelected == false)
+        if (followCursor == false)
             return;
 
         transform.position = GetMousePositionWithOffset();

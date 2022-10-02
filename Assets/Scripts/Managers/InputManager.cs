@@ -15,6 +15,9 @@ public class InputManager : MonoBehaviour
         if (inputBlocked)
             return;
 
+        if (Input.GetMouseButtonUp(0))
+            EventsManager.Instance.OnLeftMouseUp?.Invoke();
+
         // DEBUG
         if (Input.GetKeyDown(KeyCode.F))
             EventsManager.Instance.DEBUG_OnDrawCardsButtonPressed?.Invoke();

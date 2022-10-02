@@ -77,3 +77,6 @@ TagManager:
   - name: HighlightedCard
     uniqueID: 4135174855
     locked: 0
+  - name: TargettingArrow
+    uniqueID: 3723377273
+    locked: 0

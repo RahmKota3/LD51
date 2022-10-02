@@ -18,6 +18,7 @@ public class EventsManager : MonoBehaviour
 	#endregion
 
 	#region Input
+    public Action OnLeftMouseUp;
     public Action DEBUG_OnDrawCardsButtonPressed;
 	#endregion
 

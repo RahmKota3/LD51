@@ -13,12 +13,25 @@ public class ReferenceManager : MonoBehaviour
 	public StatsController PlayerStatsController;
 
 	public bool IsCardSelected = false;
+	public Vector3 SelectedCardPos = Vector3.zero;
+	public GameObject TargettingArrowObj;
+	[HideInInspector] public GameObject SelectedEnemy = null;
 
 	public float PlayCardYPosition = -1;
 
 	void OnSceneLoaded()
     {
 		FindACamera();
+		GetTargettingArrow();
+    }
+
+	void GetTargettingArrow()
+    {
+		if (FindObjectOfType<TargettingArrow>() == null)
+			return;
+
+		TargettingArrowObj = FindObjectOfType<TargettingArrow>().gameObject;
+		TargettingArrowObj.SetActive(false);
     }
 
 	void FindACamera()
