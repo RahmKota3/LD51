@@ -12,6 +12,10 @@ public class ReferenceManager : MonoBehaviour
 
 	public StatsController PlayerStatsController;
 
+	public bool IsCardSelected = false;
+
+	public float PlayCardYPosition = -1;
+
 	void OnSceneLoaded()
     {
 		FindACamera();

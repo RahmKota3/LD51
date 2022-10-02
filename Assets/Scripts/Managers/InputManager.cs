@@ -8,6 +8,8 @@ public class InputManager : MonoBehaviour
 
     bool inputBlocked = false;
 
+    public Vector2 MousePos { get; private set; }
+
     void CheckForInput()
     {
         if (inputBlocked)
@@ -18,6 +20,16 @@ public class InputManager : MonoBehaviour
             EventsManager.Instance.DEBUG_OnDrawCardsButtonPressed?.Invoke();
     }
 
+    void UpdateMousePos()
+    {
+        if(ReferenceManager.Instance.CurrentCamera == null)
+        {
+            Debug.Log("no camera!");
+            return;
+        }    
+        MousePos = ReferenceManager.Instance.CurrentCamera.ScreenToWorldPoint(Input.mousePosition);
+    }
+
     void Awake()
     {
         Instance = this;
@@ -25,6 +37,7 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
+        UpdateMousePos();
         CheckForInput();
     }
 }
