@@ -22,7 +22,12 @@ public class EventsManager : MonoBehaviour
     public Action DEBUG_OnDrawCardsButtonPressed;
 	#endregion
 
-    void Awake()
+	#region Turn management
+	public Action OnEnemyTurnStart;
+	public Action OnPlayerTurnStart;
+	#endregion
+
+	void Awake()
 	{
 		Instance = this;
 	}

@@ -29,3 +29,7 @@ MonoBehaviour:
     Value: 2
     MinValue: 0
     MaxValue: 9999
+  - Attribute: 7
+    Value: 0
+    MinValue: 0
+    MaxValue: 9999

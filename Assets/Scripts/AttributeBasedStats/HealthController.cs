@@ -28,7 +28,7 @@ public class HealthController : MonoBehaviour
 
         stats.OnHealthChanged?.Invoke(stats.GetAttributeValue(AttributeType.CurrentHp));
 
-        if (value <= 0)
+        if (stats.GetAttributeValue(AttributeType.CurrentHp) <= 0)
             OnDeath?.Invoke();
     }
 
