@@ -7,6 +7,7 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
 {
     [SerializeField] Animator anim;
     [SerializeField] CardDisplay cardDisplay;
+    [SerializeField] bool canTarget = false;
 
     bool isSelected = false;
     Vector2 offsetFromCursor = Vector2.zero;
@@ -21,8 +22,12 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
 
         isSelected = true;
         ReferenceManager.Instance.IsCardSelected = true;
-        offsetFromCursor = (Vector2)transform.position - InputManager.Instance.MousePos;
-        previousPosition = transform.position;
+
+        if (canTarget == false)
+            HandleNonTargettingCard();
+        else
+            HandleTargettingCard();
+
         cardDisplay.ChangeSortingLayer(CardSortingLayer.HighlightedCard);
     }
 
@@ -36,6 +41,8 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
         {
             CardsManager.Instance.PlayCard(this.gameObject);
         }
+
+        OnPointerExit(eventData);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -54,6 +61,17 @@ public class CardController : MonoBehaviour, IPointerDownHandler, IPointerEnterH
 
         anim.SetBool(Globals.MouseOverCardAnimBool, false);
         cardDisplay.ChangeSortingLayer(cardDisplay.layerInHand);
+    }
+
+    void HandleNonTargettingCard()
+    {
+        offsetFromCursor = (Vector2)transform.position - InputManager.Instance.MousePos;
+        previousPosition = transform.position;
+    }
+
+    void HandleTargettingCard()
+    {
+
     }
 
     Vector3 GetMousePositionWithOffset()
