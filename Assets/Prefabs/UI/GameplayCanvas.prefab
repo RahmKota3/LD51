@@ -1223,6 +1223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 433226529}
   textToDisplay: '{0} / {1}'
+  stats: {fileID: 0}
 --- !u!114 &660988232366711999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1237,6 +1238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1250827216}
   textToDisplay: '{0}'
+  stats: {fileID: 0}
 --- !u!1 &8084826532765744234
 GameObject:
   m_ObjectHideFlags: 0

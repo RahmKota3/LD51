@@ -35,6 +35,8 @@ public class CardsManager : MonoBehaviour
 
 	public void PlayCard(GameObject cardPlayed)
     {
+		cardPlayed.GetComponent<CardPlayActions>().PlayCard();
+
 		cardsInHand.Remove(cardPlayed);
 		discardPile.Add(cardPlayed.GetComponent<CardDisplay>().cardData.ID);
 		cardPlayed.transform.position = new Vector3(999, 999);
