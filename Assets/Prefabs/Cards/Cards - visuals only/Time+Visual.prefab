@@ -1,51 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8107239200513576097
+--- !u!1001 &4731975062026289040
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
-      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
-      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
-      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: -8031846466678435451}
-    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
-      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
-      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReduceEnemyAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
-      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BlockEnemyAttack, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
-      propertyPath: OnPlayActions.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: -2414227383356645286, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
-      propertyPath: canTarget
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1202009803936184645, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: cardData
       value: 
-      objectReference: {fileID: 11400000, guid: 82c19d5c85d7a3745ae2e609500664cb, type: 2}
+      objectReference: {fileID: 11400000, guid: e4a2056c79f2232468dc1da3e52e043d, type: 2}
     - target: {fileID: 1383587669131722503, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_text
-      value: Reduce target's damage by 1.
+      value: +2 Seconds
       objectReference: {fileID: 0}
     - target: {fileID: 1383587669605804962, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_RootOrder
@@ -93,80 +61,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1383587669605804963, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Name
-      value: Block1
+      value: Time+Visual
       objectReference: {fileID: 0}
     - target: {fileID: 1383587669710451485, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a0c17fb778984cc48bcde19443630852, type: 3}
+      objectReference: {fileID: 21300000, guid: e3d2a3baffa29bb4394be7aae007cf18, type: 3}
     - target: {fileID: 1383587669710451485, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1383587669900435980, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
-      propertyPath: m_Color.a
-      value: 1
+      propertyPath: m_Color.b
+      value: 0.6367924
       objectReference: {fileID: 0}
     - target: {fileID: 1383587669900435980, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Color.g
-      value: 0.56078434
+      value: 0.8735298
       objectReference: {fileID: 0}
     - target: {fileID: 1383587669900435980, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Color.r
-      value: 0.39215687
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1383587670236467991, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_text
-      value: Block
+      value: Time warp
       objectReference: {fileID: 0}
     - target: {fileID: 5866561415143653958, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_text
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8165786868584675723, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: eab8f24fdb48d0f428939402ac8d4b64, type: 3}
+      objectReference: {fileID: 21300000, guid: d064193f2eeefd8498be4870feb08295, type: 3}
     - target: {fileID: 9176627120198496971, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
-      propertyPath: m_Color.a
-      value: 1
+      propertyPath: m_Color.b
+      value: 0.6367924
       objectReference: {fileID: 0}
     - target: {fileID: 9176627120198496971, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Color.g
-      value: 0.56078434
+      value: 0.8735298
       objectReference: {fileID: 0}
     - target: {fileID: 9176627120198496971, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Color.r
-      value: 0.39215687
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6765813834867975786, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+    - {fileID: -2414227383356645286, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+    - {fileID: 7111476592260423371, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
+    - {fileID: -3092340379449342122, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
---- !u!114 &6930149862518093284 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1202009803936184645, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
-  m_PrefabInstance: {fileID: 8107239200513576097}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7183750199927187202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb58d956e0b570d458401a61958e5fb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &7183750199927187202 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1383587669605804963, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
-  m_PrefabInstance: {fileID: 8107239200513576097}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &-8031846466678435451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7183750199927187202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a92c7e6466b0b9643bac92c697779c5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardDisplay: {fileID: 6930149862518093284}
