@@ -23,6 +23,8 @@ public class EncounterManager : MonoBehaviour
 
 	int encountersToGetItem = 2;
 
+	[SerializeField] Encounter testEncounter;
+
 	public void HandleEnemyDeath()
     {
         AliveEnemiesInEncounter -= 1;
@@ -77,6 +79,12 @@ public class EncounterManager : MonoBehaviour
 
 	void GetRandomEncounter()
     {
+		if (testEncounter != null)
+		{
+			currentEncounter = testEncounter;
+			return;
+		}
+
 		if (CurrentWave >= 6)
 			IncreaseDifficulty();
 
@@ -98,7 +106,8 @@ public class EncounterManager : MonoBehaviour
 
 	void IncreaseDifficulty()
     {
-		ReferenceManager.Instance.CurrentEncounterDifficulty += 1;
+		if(ReferenceManager.Instance.CurrentEncounterDifficulty == EncounterDifficulty.Easy)
+			ReferenceManager.Instance.CurrentEncounterDifficulty += 1;
     }
 
 	IEnumerator SpawnWaveAfterDelay(float delay)

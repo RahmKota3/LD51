@@ -50,4 +50,9 @@ public class TurnManager : MonoBehaviour
 	{
 		Instance = this;
 	}
+
+    private void Start()
+	{
+		EventsManager.Instance.OnPlayerTurnStart?.Invoke();
+	}
 }

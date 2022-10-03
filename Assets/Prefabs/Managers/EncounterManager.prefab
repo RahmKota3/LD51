@@ -55,8 +55,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 647fa7a69ed140e469949ab744e3b81e, type: 2}
   - {fileID: 11400000, guid: 351d7412e7895bd4b82b2a96c1190076, type: 2}
   - {fileID: 11400000, guid: d8eb7c2dd7e88a0458a27e9df18e5df6, type: 2}
+  - {fileID: 11400000, guid: 54eb4811922121b4ab72f1e8b46c89b5, type: 2}
+  - {fileID: 11400000, guid: e8a3a583245267047acab6003fac9e38, type: 2}
+  - {fileID: 11400000, guid: 2984828af9c3a6044aab4ba9ee84f595, type: 2}
+  - {fileID: 11400000, guid: 1d447e8e67f0a0a40846eba058ad7768, type: 2}
   hardEncounters: []
   enemiesParent: {fileID: 0}
   timer: {fileID: 0}
   AliveEnemiesInEncounter: 0
   CurrentWave: 0
+  testEncounter: {fileID: 0}

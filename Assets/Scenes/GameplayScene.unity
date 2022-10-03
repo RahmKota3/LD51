@@ -842,6 +842,10 @@ PrefabInstance:
       propertyPath: enemiesParent
       value: 
       objectReference: {fileID: 303788093}
+    - target: {fileID: 3209126110789827720, guid: 18ca0b18bd17dbd4dbec7117ea30ea3d, type: 3}
+      propertyPath: testEncounter
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5459959317314549904, guid: 18ca0b18bd17dbd4dbec7117ea30ea3d, type: 3}
       propertyPath: m_Name
       value: EncounterManager

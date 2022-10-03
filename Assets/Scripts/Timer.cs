@@ -16,6 +16,11 @@ public class Timer : MonoBehaviour
     [SerializeField] Color normalColor = Color.white;
     [SerializeField] Color shortTimeColor = Color.white;
 
+    public void ReduceTime(float amount)
+    {
+        TimeLeftInTurn -= amount;
+    }
+
     public void PauseTimer()
     {
         paused = true;
