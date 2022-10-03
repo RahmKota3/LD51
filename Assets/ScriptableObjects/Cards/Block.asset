@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb61920cf5078734e9d91321ba2d2f33, type: 3}
   m_Name: Block
   m_EditorClassIdentifier: 
+  Type: 1
   Name: Block
   Description: Reduce target's damage by {0}.
   CardIcon: {fileID: 21300000, guid: a0c17fb778984cc48bcde19443630852, type: 3}

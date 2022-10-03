@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb61920cf5078734e9d91321ba2d2f33, type: 3}
   m_Name: Time+2
   m_EditorClassIdentifier: 
+  Type: 2
   Name: Time warp
   Description: +{0} Seconds
   CardIcon: {fileID: 21300000, guid: e3d2a3baffa29bb4394be7aae007cf18, type: 3}

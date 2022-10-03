@@ -10,6 +10,9 @@ public class GameReferenceManager : MonoBehaviour
 	public GameObject ChooseItemMenu;
 
 	public ChooseItemUI RewardScreenController;
+
+	public int EnemyHpIncrease = 0;
+	public int EnemyDamageIncrease = 0;
 	
 	void Awake()
 	{
