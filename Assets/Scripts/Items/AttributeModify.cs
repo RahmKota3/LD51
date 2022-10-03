@@ -2,13 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttributeModify : BaseItem
+public class AttributeModify : MonoBehaviour
 {
-    [SerializeField] AttributeType attributeToModify;
-    [SerializeField] int modifyBy;
+    [SerializeField] List<AttributeModificationDictionaryElement> AttributesToModify; 
 
-    public void HandleItemAcquire()
+    public void ModifyAttribute()
     {
-        ReferenceManager.Instance.PlayerStatsController.IncreaseAttribute(attributeToModify, modifyBy);
+        foreach (AttributeModificationDictionaryElement item in AttributesToModify)
+        {
+            ReferenceManager.Instance.PlayerStatsController.IncreaseAttribute(item.AttributeToModify, item.ModifyBy);
+        }
     }
+}
+
+[System.Serializable]
+public class AttributeModificationDictionaryElement
+{
+    public AttributeType AttributeToModify;
+    public float ModifyBy;
 }

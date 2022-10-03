@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class EveryNthCard : BaseItem
 {
+    int cardsPlayedInRow = 0;
+
     void HandleCardPlayed()
     {
-        OnItemTriggered?.Invoke();
+        cardsPlayedInRow += 1;
+
+        if (cardsPlayedInRow == HowManyCardsPlayed)
+        {
+            OnItemTriggered?.Invoke();
+            cardsPlayedInRow = 0;
+        }
     }
 
     private void Start()

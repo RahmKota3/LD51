@@ -5,7 +5,6 @@ using UnityEngine;
 public class EveryNthCardTypePlayedInRow : BaseItem
 {
     [SerializeField] CardType cardType;
-    [SerializeField] int n = 999;
 
     int inRow = 0;
 
@@ -14,7 +13,7 @@ public class EveryNthCardTypePlayedInRow : BaseItem
         if(cardType == type)
         {
             inRow += 1;
-            if (inRow == n)
+            if (inRow == HowManyCardsPlayed)
                 EffectTrigger();
         }
         else

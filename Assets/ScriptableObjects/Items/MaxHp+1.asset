@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4082a734d20ef01418213e5f16f5de56, type: 3}
+  m_Name: MaxHp+1
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: 30594e05f723f7d4ebace9f225d60825, type: 3}
+  objectToSpawn: {fileID: 7130270589014303197, guid: 7e240ee0a266435459453193fb108c10, type: 3}
+  Tooltip: Max HP +1

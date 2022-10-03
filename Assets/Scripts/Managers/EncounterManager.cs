@@ -33,9 +33,18 @@ public class EncounterManager : MonoBehaviour
 			timer.HideTimer();
 			EventsManager.Instance.OnEncounterFinished?.Invoke();
 
-			StartCoroutine(SpawnWaveAfterSeconds(2));
+			GameReferenceManager.Instance.RewardScreenController.OpenRewardScreen();
 		}
     }
+
+	public void SpawnNewWave()
+    {
+		timer.ResumeTimer();
+
+		GenerateAndSpawnNewWave();
+		InputManager.Instance.UnblockInput();
+		timer.ShowTimer();
+	}
 
 	void GenerateAndSpawnNewWave()
     {
@@ -80,17 +89,6 @@ public class EncounterManager : MonoBehaviour
 		ReferenceManager.Instance.CurrentEncounterDifficulty += 1;
     }
 	
-	IEnumerator SpawnWaveAfterSeconds(float seconds)
-    {
-		yield return new WaitForSeconds(seconds);
-
-		timer.ResumeTimer();
-
-		GenerateAndSpawnNewWave();
-		InputManager.Instance.UnblockInput();
-		timer.ShowTimer();
-	}
-
 	Vector3 GetSpawnPosition(int currentEnemy)
     {
 		float firstSpawnPos = -Mathf.Floor(AliveEnemiesInEncounter / 2) * offsetBetweenEnemies;
