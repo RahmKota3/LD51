@@ -188,7 +188,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2046842423
 GameObject:
@@ -281,13 +281,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 634481136, guid: 796c5e90899de204b8ed516552841fe9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5817749529549478715}
     - target: {fileID: 127834785043874706, guid: 796c5e90899de204b8ed516552841fe9, type: 3}
       propertyPath: m_Name
       value: MainMenuCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 127834785043874706, guid: 796c5e90899de204b8ed516552841fe9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 127834785043874710, guid: 796c5e90899de204b8ed516552841fe9, type: 3}
       propertyPath: m_Pivot.x
@@ -373,10 +373,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 127834785829055644, guid: 796c5e90899de204b8ed516552841fe9, type: 3}
-      propertyPath: m_text
-      value: Carddown!
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 796c5e90899de204b8ed516552841fe9, type: 3}
 --- !u!1001 &5817749529549478713
@@ -400,7 +396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5817749530991966871, guid: 7ade81d4e98ac83449b4b655073c213f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5817749530991966871, guid: 7ade81d4e98ac83449b4b655073c213f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -476,3 +472,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ade81d4e98ac83449b4b655073c213f, type: 3}
+--- !u!1 &5817749529549478715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5817749530991966867, guid: 7ade81d4e98ac83449b4b655073c213f, type: 3}
+  m_PrefabInstance: {fileID: 5817749529549478713}
+  m_PrefabAsset: {fileID: 0}
