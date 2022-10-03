@@ -46,9 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca476763eaa1b904d8a201f0adf2e61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Attack: {fileID: 8300000, guid: 0993c8c472ae2df4d97863cf2c1e634b, type: 3}
+  Attack: {fileID: 8300000, guid: 8fcabaffe5fad2249b8db80ba03ee06b, type: 3}
   Death: {fileID: 8300000, guid: ab79cd890b4ab5b4d819f7e62452be55, type: 3}
   MenuButton: {fileID: 8300000, guid: 4ff7aee590b2c674794cc95b56d6ae69, type: 3}
+  Slash: {fileID: 8300000, guid: 0993c8c472ae2df4d97863cf2c1e634b, type: 3}
+  Block: {fileID: 8300000, guid: 065908ace76635544bbc61980a5b1910, type: 3}
+  Time: {fileID: 8300000, guid: 725cab1c03c84ac4da15c794e373e8be, type: 3}
   audioSource: {fileID: 8078801419690596507}
 --- !u!82 &8078801419690596507
 AudioSource:

@@ -12,6 +12,11 @@ public class EnemyAttack : MonoBehaviour
 
     int damage;
 
+    public void PlayAttackSound()
+    {
+        SoundManager.Instance.PlaySound(SoundType.Attack);
+    }
+
     public void AttackPlayer()
     {
         if (hpController.IsDead)

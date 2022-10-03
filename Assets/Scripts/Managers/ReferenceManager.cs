@@ -52,6 +52,11 @@ public class ReferenceManager : MonoBehaviour
             }
         }
     }
+
+	void GenerateRandomSeed()
+    {
+		UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
+    }
 	
 	void Awake()
 	{
@@ -62,5 +67,7 @@ public class ReferenceManager : MonoBehaviour
 
 		if(CurrentCamera == null)
 			FindACamera();
+
+		GenerateRandomSeed();
 	}
 }

@@ -7,6 +7,9 @@ public class SoundManager : MonoBehaviour
 	[SerializeField] AudioClip Attack;
 	[SerializeField] AudioClip Death;
 	[SerializeField] AudioClip MenuButton;
+	[SerializeField] AudioClip Slash;
+	[SerializeField] AudioClip Block;
+	[SerializeField] AudioClip Time;
 
 	[SerializeField] AudioSource audioSource;
 
@@ -19,7 +22,7 @@ public class SoundManager : MonoBehaviour
 
         switch (sound)
         {
-			case SoundType.Slash:
+			case SoundType.Attack:
 				audioSource.PlayOneShot(Attack);
 				break;
 
@@ -29,6 +32,18 @@ public class SoundManager : MonoBehaviour
 
 			case SoundType.MenuButton:
 				audioSource.PlayOneShot(MenuButton);
+				break;
+
+			case SoundType.Slash:
+				audioSource.PlayOneShot(Slash);
+				break;
+
+			case SoundType.Block:
+				audioSource.PlayOneShot(Block);
+				break;
+
+			case SoundType.Time:
+				audioSource.PlayOneShot(Time);
 				break;
 		}
     }

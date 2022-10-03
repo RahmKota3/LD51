@@ -7,7 +7,10 @@ public enum AttributeType { None, MaxHp, CurrentHp, MaxCardsInHand, Damage, Pois
 
 public enum EncounterDifficulty { Easy, Medium, Hard }
 
-public enum SoundType { Slash, Death, MenuButton }
+public enum SoundType { Attack, Death, MenuButton, Slash,
+    Block,
+    Time
+}
 
 public class Globals
 {
