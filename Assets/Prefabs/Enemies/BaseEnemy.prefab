@@ -1141,6 +1141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statsController: {fileID: 2060957235884748455}
   anim: {fileID: 273422265831609309}
+  hpController: {fileID: 2060957235884748454}
 --- !u!61 &607461637
 BoxCollider2D:
   m_ObjectHideFlags: 0

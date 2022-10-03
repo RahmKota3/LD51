@@ -8,10 +8,18 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] StatsController statsController;
     [SerializeField] AnimationController anim;
 
+    [SerializeField] HealthController hpController;
+
     int damage;
 
     public void AttackPlayer()
     {
+        if (hpController.IsDead)
+        {
+            TurnManager.Instance.EnemyAttacked();
+            return;
+        }
+
         anim.PlayAttackAnimation();
         ReferenceManager.Instance.PlayerStatsController.IncreaseAttribute(AttributeType.CurrentHp, -damage);
         TurnManager.Instance.EnemyAttacked();

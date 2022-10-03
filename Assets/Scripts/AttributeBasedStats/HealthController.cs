@@ -7,6 +7,8 @@ public class HealthController : MonoBehaviour
 {
     [SerializeField] StatsController stats;
 
+    public bool IsDead { get; private set; } = false;
+
     public UnityEvent OnDeath;
 
     void HandleHealthChange(float value)
@@ -29,7 +31,10 @@ public class HealthController : MonoBehaviour
         stats.OnHealthChanged?.Invoke(stats.GetAttributeValue(AttributeType.CurrentHp));
 
         if (stats.GetAttributeValue(AttributeType.CurrentHp) <= 0)
+        {
+            IsDead = true;
             OnDeath?.Invoke();
+        }
     }
 
     private void Start()

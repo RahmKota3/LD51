@@ -820,6 +820,14 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 5243972304222676144}
+    - target: {fileID: 2535525119766353032, guid: e4cb743a8b2876743a327d10150e4b83, type: 3}
+      propertyPath: currentHighscoreTextBox
+      value: 
+      objectReference: {fileID: 8084826531604828784}
+    - target: {fileID: 2535525119766353032, guid: e4cb743a8b2876743a327d10150e4b83, type: 3}
+      propertyPath: previousHighscoreTextBox
+      value: 
+      objectReference: {fileID: 8084826531604828783}
     - target: {fileID: 8084826532684946406, guid: e4cb743a8b2876743a327d10150e4b83, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -910,3 +918,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4cb743a8b2876743a327d10150e4b83, type: 3}
+--- !u!114 &8084826531604828783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 420622926, guid: e4cb743a8b2876743a327d10150e4b83, type: 3}
+  m_PrefabInstance: {fileID: 8084826531604828782}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8084826531604828784 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1294348928, guid: e4cb743a8b2876743a327d10150e4b83, type: 3}
+  m_PrefabInstance: {fileID: 8084826531604828782}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
