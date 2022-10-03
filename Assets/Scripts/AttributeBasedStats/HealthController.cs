@@ -26,7 +26,7 @@ public class HealthController : MonoBehaviour
         }
 
         attributeToIncrease.Value = Mathf.Clamp(attributeToIncrease.Value + value,
-            attributeToIncrease.MinValue, attributeToIncrease.MaxValue);
+            attributeToIncrease.MinValue, stats.GetAttributeValue(AttributeType.MaxHp));
 
         stats.OnHealthChanged?.Invoke(stats.GetAttributeValue(AttributeType.CurrentHp));
 
