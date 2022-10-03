@@ -7,6 +7,8 @@ public enum AttributeType { None, MaxHp, CurrentHp, MaxCardsInHand, Damage, Pois
 
 public enum EncounterDifficulty { Easy, Medium, Hard }
 
+public enum SoundType { Slash, Death, MenuButton }
+
 public class Globals
 {
 	public const string MouseOverCardAnimBool = "MouseOver";

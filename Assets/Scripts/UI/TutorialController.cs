@@ -19,8 +19,10 @@ public class TutorialController : MonoBehaviour
         {
             nextButton.SetActive(false);
         }
-
-        currentStep += 1;
+        else
+        {
+            currentStep += 1;
+        }
 
         tutorialWindows[currentStep - 1].SetActive(false);
         tutorialWindows[currentStep].SetActive(true);
