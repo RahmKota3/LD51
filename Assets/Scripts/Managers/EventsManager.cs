@@ -13,6 +13,7 @@ public class EventsManager : MonoBehaviour
     #region CardActions
     public Action OnCardDrawn;
 	public Action OnCardPlayed;
+	public Action<CardType> OnCardTypePlayed;
 	public Action OnCardsShuffled;
 	public Action OnFirstShuffle;
 	#endregion

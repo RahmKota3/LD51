@@ -56,6 +56,9 @@ public class EncounterManager : MonoBehaviour
 
 	void GetRandomEncounter()
     {
+		if (CurrentWave >= 6)
+			IncreaseDifficulty();
+
         switch (ReferenceManager.Instance.CurrentEncounterDifficulty)
         {
 			case EncounterDifficulty.Easy:
@@ -70,6 +73,11 @@ public class EncounterManager : MonoBehaviour
 				currentEncounter = hardEncounters[Random.Range(0, hardEncounters.Count)];
 				break;
 		}
+    }
+
+	void IncreaseDifficulty()
+    {
+		ReferenceManager.Instance.CurrentEncounterDifficulty += 1;
     }
 	
 	IEnumerator SpawnWaveAfterSeconds(float seconds)

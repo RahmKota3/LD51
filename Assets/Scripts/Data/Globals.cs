@@ -12,6 +12,8 @@ public enum SoundType { Attack, Death, MenuButton, Slash,
     Time
 }
 
+public enum CardType { Attack, Block, Time }
+
 public class Globals
 {
 	public const string MouseOverCardAnimBool = "MouseOver";
