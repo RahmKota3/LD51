@@ -27,6 +27,8 @@ public class EncounterManager : MonoBehaviour
 
 		if (AliveEnemiesInEncounter == 0)
 		{
+			timer.PauseTimer();
+
 			InputManager.Instance.BlockInput();
 			timer.HideTimer();
 			EventsManager.Instance.OnEncounterFinished?.Invoke();
@@ -73,6 +75,8 @@ public class EncounterManager : MonoBehaviour
 	IEnumerator SpawnWaveAfterSeconds(float seconds)
     {
 		yield return new WaitForSeconds(seconds);
+
+		timer.ResumeTimer();
 
 		GenerateAndSpawnNewWave();
 		InputManager.Instance.UnblockInput();

@@ -8,13 +8,23 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timer;
     [HideInInspector] public float TimeLeftInTurn = 10f;
 
-    //bool playersTurn { get { return TurnManager.Instance.IsPlayersTurn; } }
     bool playersTurn = true;
+    bool paused = false;
 
     string format;
 
     [SerializeField] Color normalColor = Color.white;
     [SerializeField] Color shortTimeColor = Color.white;
+
+    public void PauseTimer()
+    {
+        paused = true;
+    }
+
+    public void ResumeTimer()
+    {
+        paused = false;
+    }
 
     public void StopTimer()
     {
@@ -86,7 +96,7 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-        if (playersTurn == false)
+        if (playersTurn == false || paused)
             return;
 
         DecreaseTime();
