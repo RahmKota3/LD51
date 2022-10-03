@@ -42,10 +42,10 @@ PrefabInstance:
     - target: {fileID: 1202009803936184645, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: cardData
       value: 
-      objectReference: {fileID: 11400000, guid: 3777ea9cea0cf504b8584d7b1d6e472e, type: 2}
+      objectReference: {fileID: 11400000, guid: 492f5774aa4ccd74a9e307886455fc7a, type: 2}
     - target: {fileID: 1383587669131722503, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_text
-      value: Deal 1 damage
+      value: Deal 2 damage
       objectReference: {fileID: 0}
     - target: {fileID: 1383587669605804962, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_RootOrder
@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1383587669605804963, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Name
-      value: Dmg1
+      value: Dmg2
       objectReference: {fileID: 0}
     - target: {fileID: 1383587669710451485, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Sprite
@@ -125,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866561415143653958, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_text
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8165786868584675723, guid: 54454328b54a2974898d84c78b5b10b9, type: 3}
       propertyPath: m_Sprite

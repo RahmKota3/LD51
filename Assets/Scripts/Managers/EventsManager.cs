@@ -29,7 +29,9 @@ public class EventsManager : MonoBehaviour
 
 	#region Encounter
 	public Action OnEncounterFinished;
-    #endregion
+	#endregion
+
+	public Action OnPlayerDeath;
 
     void Awake()
 	{

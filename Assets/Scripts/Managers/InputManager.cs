@@ -35,12 +35,12 @@ public class InputManager : MonoBehaviour
         MousePos = ReferenceManager.Instance.CurrentCamera.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    void BlockInput()
+    public void BlockInput()
     {
         InputBlocked = true;
     }
 
-    void UnblockInput()
+    public void UnblockInput()
     {
         InputBlocked = false;
     }
@@ -54,12 +54,16 @@ public class InputManager : MonoBehaviour
     {
         EventsManager.Instance.OnPlayerTurnStart += UnblockInput;
         EventsManager.Instance.OnEnemyTurnStart += BlockInput;
+
+        EventsManager.Instance.OnAfterSceneLoad += UnblockInput;
     }
 
     private void OnDestroy()
     {
         EventsManager.Instance.OnPlayerTurnStart -= UnblockInput;
         EventsManager.Instance.OnEnemyTurnStart -= BlockInput;
+
+        EventsManager.Instance.OnAfterSceneLoad -= UnblockInput;
     }
 
     private void Update()

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,11 @@ public class EncounterManager : MonoBehaviour
 	[SerializeField] Transform enemiesParent;
 	float offsetBetweenEnemies = 2f;
 
+	[SerializeField] Timer timer;
+
 	[HideInInspector] public int AliveEnemiesInEncounter = 0;
+
+	[HideInInspector] public int CurrentWave = 0;
 
 	Encounter currentEncounter;
 
@@ -21,8 +26,23 @@ public class EncounterManager : MonoBehaviour
         AliveEnemiesInEncounter -= 1;
 
 		if (AliveEnemiesInEncounter == 0)
+		{
+			InputManager.Instance.BlockInput();
+			timer.HideTimer();
 			EventsManager.Instance.OnEncounterFinished?.Invoke();
+
+			StartCoroutine(SpawnWaveAfterSeconds(2));
+		}
     }
+
+	void GenerateAndSpawnNewWave()
+    {
+		GetRandomEncounter();
+		AliveEnemiesInEncounter = currentEncounter.EnemiesInEncounter.Count;
+		SpawnEnemies();
+
+		CurrentWave += 1;
+	}
 
     void SpawnEnemies()
     {
@@ -50,6 +70,15 @@ public class EncounterManager : MonoBehaviour
 		}
     }
 	
+	IEnumerator SpawnWaveAfterSeconds(float seconds)
+    {
+		yield return new WaitForSeconds(seconds);
+
+		GenerateAndSpawnNewWave();
+		InputManager.Instance.UnblockInput();
+		timer.ShowTimer();
+	}
+
 	Vector3 GetSpawnPosition(int currentEnemy)
     {
 		float firstSpawnPos = -Mathf.Floor(AliveEnemiesInEncounter / 2) * offsetBetweenEnemies;
@@ -63,8 +92,6 @@ public class EncounterManager : MonoBehaviour
 	{
 		Instance = this;
 
-		GetRandomEncounter();
-		AliveEnemiesInEncounter = currentEncounter.EnemiesInEncounter.Count;
-		SpawnEnemies();
+		GenerateAndSpawnNewWave();
 	}
 }

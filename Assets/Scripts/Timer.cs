@@ -13,6 +13,25 @@ public class Timer : MonoBehaviour
 
     string format;
 
+    [SerializeField] Color normalColor = Color.white;
+    [SerializeField] Color shortTimeColor = Color.white;
+
+    public void StopTimer()
+    {
+        playersTurn = false;
+        HideTimer();
+    }
+
+    public void HideTimer()
+    {
+        timer.gameObject.SetActive(false);
+    }
+
+    public void ShowTimer()
+    {
+        timer.gameObject.SetActive(true);
+    }
+
     public void IncreaseTime(float increaseBy)
     {
         TimeLeftInTurn += increaseBy;
@@ -31,9 +50,15 @@ public class Timer : MonoBehaviour
     void DisplayTime()
     {
         if (TimeLeftInTurn > 2)
+        {
             format = "0";
+            timer.color = normalColor;
+        }
         else
+        {
             format = "0.0";
+            timer.color = shortTimeColor;
+        }
 
         timer.text = TimeLeftInTurn.ToString(format) + "s";
     }
@@ -55,6 +80,7 @@ public class Timer : MonoBehaviour
     {
         EventsManager.Instance.OnPlayerTurnStart += ResetTimer;
         EventsManager.Instance.OnEnemyTurnStart += HandleEnemyTurnStart;
+        EventsManager.Instance.OnPlayerDeath += StopTimer;
         ResetTimer();
     }
 
@@ -71,5 +97,6 @@ public class Timer : MonoBehaviour
     {
         EventsManager.Instance.OnPlayerTurnStart -= ResetTimer;
         EventsManager.Instance.OnEnemyTurnStart -= HandleEnemyTurnStart;
+        EventsManager.Instance.OnPlayerDeath -= StopTimer;
     }
 }
