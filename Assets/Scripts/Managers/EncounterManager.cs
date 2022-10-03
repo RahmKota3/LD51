@@ -21,7 +21,7 @@ public class EncounterManager : MonoBehaviour
 
 	Encounter currentEncounter;
 
-	int encountersToGetItem = 2;
+	int encountersToGetItem = 3;
 
 	[SerializeField] Encounter testEncounter;
 
