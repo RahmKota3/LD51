@@ -21,6 +21,8 @@ public class EncounterManager : MonoBehaviour
 
 	Encounter currentEncounter;
 
+	int encountersToGetItem = 2;
+
 	public void HandleEnemyDeath()
     {
         AliveEnemiesInEncounter -= 1;
@@ -33,7 +35,17 @@ public class EncounterManager : MonoBehaviour
 			timer.HideTimer();
 			EventsManager.Instance.OnEncounterFinished?.Invoke();
 
-			GameReferenceManager.Instance.RewardScreenController.OpenRewardScreen();
+			encountersToGetItem -= 1;
+
+			if (encountersToGetItem == 0)
+			{
+				GameReferenceManager.Instance.RewardScreenController.OpenRewardScreen();
+				encountersToGetItem = 2;
+			}
+			else
+            {
+				StartCoroutine(SpawnWaveAfterDelay(1.5f));
+            }
 		}
     }
 
@@ -87,6 +99,13 @@ public class EncounterManager : MonoBehaviour
 	void IncreaseDifficulty()
     {
 		ReferenceManager.Instance.CurrentEncounterDifficulty += 1;
+    }
+
+	IEnumerator SpawnWaveAfterDelay(float delay)
+    {
+		yield return new WaitForSeconds(delay);
+
+		SpawnNewWave();
     }
 	
 	Vector3 GetSpawnPosition(int currentEnemy)

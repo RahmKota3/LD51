@@ -37,12 +37,15 @@ public class CardsManager : MonoBehaviour
     {
 		cardPlayed.GetComponent<CardPlayActions>().PlayCard();
 
+		CardDisplay cd = cardPlayed.GetComponent<CardDisplay>();
+
 		cardsInHand.Remove(cardPlayed);
-		discardPile.Add(cardPlayed.GetComponent<CardDisplay>().cardData.ID);
+		discardPile.Add(cd.cardData.ID);
 		cardPlayed.transform.position = new Vector3(999, 999);
 		SimplePool.Despawn(cardPlayed);
 		PositionCardsInHand();
 		EventsManager.Instance.OnCardPlayed?.Invoke();
+		EventsManager.Instance.OnCardTypePlayed?.Invoke(cd.cardData.Type);
 
 		if (numOfCardsInHand == 0)
 		{

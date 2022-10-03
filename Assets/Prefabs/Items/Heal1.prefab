@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa62d606efcfa5f45b4c9aa3cc0e9849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HowManyCardsPlayed: 4
+  HowManyCardsPlayed: 2
   OnItemTriggered:
     m_PersistentCalls:
       m_Calls:
